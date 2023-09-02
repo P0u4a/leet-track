@@ -1,14 +1,6 @@
-type LogoProps = {
-    className?: string;
-};
-
-export default function Logo({ className }: LogoProps) {
+export default function Logo() {
     return (
-        <div
-            className={`flex flex-row items-center justify-start gap-4 ${
-                className ?? ''
-            }`}
-        >
+        <div className="flex flex-row items-center justify-start gap-4">
             <svg
                 className="w-14"
                 fill="none"
@@ -25,7 +17,6 @@ export default function Logo({ className }: LogoProps) {
                 <circle cx="22" cy="18" r="15" fill="red" fillOpacity=".22" />
                 <circle cx="15" cy="15" r="15" fill="red" fillOpacity=".22" />
             </svg>
-            <h2 className="text-3xl">Placeholder</h2>
         </div>
     );
 }
