@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Logo from './logo';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from './button';
+import { ArrowRight } from 'lucide-react';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 export default function Header() {
     return (
@@ -23,6 +24,7 @@ export default function Header() {
                         )}
                     >
                         Sign in
+                        <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </SignedOut>
 
