@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 import { Timer, LineChart, Zap } from 'lucide-react';
+
 export default function Home() {
     return (
         <>
@@ -20,12 +21,12 @@ export default function Home() {
                         Track your Leetcode Progress with just one click
                     </h1>
                     <p className="max-w-xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-                        A chrome extension for logging leetcode questions and
-                        visualising your progress.
+                        The perfect chrome extension for logging leetcode
+                        questions and visualising your progress.
                     </p>
                     <div className="space-x-4">
                         <Link
-                            href="/login"
+                            href="/sign-in"
                             className={cn(buttonVariants({ size: 'lg' }))}
                         >
                             Get Started

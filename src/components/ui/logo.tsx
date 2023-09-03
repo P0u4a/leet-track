@@ -11,11 +11,23 @@ export default function Logo() {
                     cx="18.32"
                     cy="16.48"
                     r="15"
-                    fill="red"
+                    fill="#fbbf24"
                     fillOpacity=".22"
                 />
-                <circle cx="22" cy="18" r="15" fill="red" fillOpacity=".22" />
-                <circle cx="15" cy="15" r="15" fill="red" fillOpacity=".22" />
+                <circle
+                    cx="22"
+                    cy="18"
+                    r="15"
+                    fill="#fbbf24"
+                    fillOpacity=".22"
+                />
+                <circle
+                    cx="15"
+                    cy="15"
+                    r="15"
+                    fill="#fbbf24"
+                    fillOpacity=".22"
+                />
             </svg>
         </div>
     );
