@@ -20,11 +20,11 @@ export default function Header() {
                                 variant: 'ghost',
                                 size: 'lg',
                             }),
-                            'text-base'
+                            'text-base group'
                         )}
                     >
                         Sign in
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="transition-transform ease-in-out group-hover:translate-x-1 ml-2 h-4 w-4" />
                     </Link>
                 </SignedOut>
 
