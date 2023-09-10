@@ -55,5 +55,7 @@
     }
     body {
         @apply bg-background text-foreground;
+        @apply min-h-screen;
+        @apply relative;
     }
 }

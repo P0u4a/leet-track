@@ -6,7 +6,7 @@ import { Timer, LineChart, Zap } from 'lucide-react';
 export default function Home() {
     return (
         <>
-            <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+            <section className="space-y-6 pb-8 pt-6">
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
                     <Link
                         href={
@@ -17,14 +17,14 @@ export default function Home() {
                     >
                         Download for Chrome
                     </Link>
-                    <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pb-4">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
                     <p className="max-w-xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
                         The chrome extension for logging leetcode questions and
                         visualising your progress.
                     </p>
-                    <div className="space-x-4">
+                    <div className="flex flex-col gap-4 md:flex-row">
                         <Link
                             href="/dashboard"
                             className={cn(buttonVariants({ size: 'lg' }))}
@@ -47,20 +47,17 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section
-                id="features"
-                className="container space-y-6 py-8 md:py-12 lg:py-24"
-            >
+            <section className="container space-y-6 py-8 md:py-12 lg:py-24">
                 <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-                    <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl font-bold">
+                    <h2 className="text-3xl leading-[1.1] sm:text-3xl md:text-6xl font-bold">
                         Features
                     </h2>
                 </div>
                 <div className="flex flex-col justify-center gap-4 mx-auto md:flex-row md:max-w-[64rem]">
-                    <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+                    <div className="relative overflow-hidden rounded-lg border bg-background p-2 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex flex-col justify-between rounded-md p-6">
                             <Timer />
-                            <div className="space-y-2">
+                            <div className="space-y-2 pt-2">
                                 <h3 className="font-bold">Stopwatch</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Non-intrusive timer for conveniently
@@ -69,44 +66,40 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+                    <div className="relative overflow-hidden rounded-lg border bg-background p-2 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex flex-col justify-between rounded-md p-6">
                             <Zap />
-                            <div className="space-y-2">
+                            <div className="space-y-2 pt-2">
                                 <h3 className="font-bold">Auto Logging</h3>
                                 <p className="text-sm text-muted-foreground">
                                     No manual input needed, log your solved
-                                    problems and times with a single click.
+                                    problems with a single click.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+                    <div className="relative overflow-hidden rounded-lg border bg-background p-2 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex flex-col justify-between rounded-md p-6">
                             <LineChart />
-                            <div className="space-y-2">
+                            <div className="space-y-2 pt-2">
                                 <h3 className="font-bold">
                                     Data Visualisation
                                 </h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Visualise your progress through the
-                                    auto-generated graphs based on your solve
-                                    times.
+                                    Visualise your progress through
+                                    auto-generated graphs.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section
-                id="open-source"
-                className="container py-8 md:py-12 lg:py-24"
-            >
+            <section className="container py-8 md:py-12 lg:py-24">
                 <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-                    <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl font-bold pb-2">
+                    <h2 className="text-3xl leading-[1.1] sm:text-3xl md:text-6xl font-bold pb-2">
                         Begin tracking today
                     </h2>
-                    <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+                    <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 pb-12">
                         Tracking your Leetcode progress is a tried and tested
                         way to achieve success.
                     </p>

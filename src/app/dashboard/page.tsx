@@ -9,8 +9,8 @@ export default function Dashboard() {
                         Dashboard
                     </h1>
 
-                    <Tabs defaultValue="solved-problems" className="w-[32rem]">
-                        <TabsList className="grid w-[24rem] md:w-full grid-cols-2 md:grid-cols-4">
+                    <Tabs defaultValue="solved-problems">
+                        <TabsList className="grid md:w-full grid-cols-2 md:grid-cols-4 h-full">
                             <TabsTrigger value="solved-problems">
                                 Solved Problems
                             </TabsTrigger>
