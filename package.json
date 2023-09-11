@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "db:push": "drizzle-kit push:mysql --config=drizzle.config.ts",
-    "db:generate": "drizzle-kit generate:mysql --schema=src/db/schema.ts"
+    "db:generate": "drizzle-kit generate:mysql --schema=src/db/schema.ts",
+    "db:introspect": "drizzle-kit introspect:mysql --config=drizzle.config.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.3",
@@ -29,11 +30,11 @@
     "eslint-config-next": "13.4.19",
     "lucide-react": "^0.274.0",
     "mysql2": "^3.6.0",
-    "nanoid": "^4.0.2",
     "next": "13.4.19",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "svix": "^1.11.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
