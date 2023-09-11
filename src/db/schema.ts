@@ -10,7 +10,7 @@ import {
 export const questions = mysqlTable(
     'questions',
     {
-        id: varchar('id', { length: 64 }).notNull(),
+        id: int('id').notNull().autoincrement(),
         name: varchar('name', { length: 64 }).notNull(),
         difficulty: mysqlEnum('difficulty', [
             'Easy',
@@ -32,7 +32,7 @@ export const questions = mysqlTable(
 export const tagAllocations = mysqlTable(
     'tag_allocations',
     {
-        questionId: varchar('question_id', { length: 64 }).notNull(),
+        questionId: int('question_id').notNull(),
         tagName: varchar('tag_name', { length: 64 }).notNull(),
     },
     (table) => {
