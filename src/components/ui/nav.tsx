@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 export default function Header() {
     return (
-        <nav className="flex items-center justify-between py-3 mx-4">
+        <nav className="flex items-center justify-between py-3 mx-6 md:mx-12">
             <Link href="/">
                 <Logo />
             </Link>
@@ -29,7 +29,7 @@ export default function Header() {
 
             <SignedIn>
                 <UserButton
-                    afterSignOutUrl="/"
+                    afterSignOutUrl="http://localhost:3000/"
                     userProfileMode="navigation"
                     userProfileUrl="http://localhost:3000/account"
                     appearance={{
