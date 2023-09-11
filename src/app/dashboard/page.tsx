@@ -1,6 +1,30 @@
+'use client';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useEffect, useState } from 'react';
+import { formatTime } from '@/lib/format-time';
+
+type QuestionData = {
+    name: string;
+    difficulty: 'Easy' | 'Medium' | 'Hard';
+    timeElapsed: number;
+    notes: string | null;
+};
 
 export default function Dashboard() {
+    const [userQuestions, setUserQuestions] = useState<QuestionData[]>();
+    useEffect(() => {
+        const fetchQuestions = async () => {
+            const res = await fetch('/api/get-questions');
+            // TODO Send toast
+            if (res.status !== 200) return;
+            const data = await res.json();
+            setUserQuestions(data);
+        };
+
+        fetchQuestions();
+    });
+
     return (
         <>
             <section className="container flex flex-col gap-6 py-8 md:py-12">
@@ -26,7 +50,24 @@ export default function Dashboard() {
                         </TabsList>
                         <div className="pt-12">
                             <TabsContent value="solved-problems">
-                                Solved Problems Table here
+                                <div className="flex flex-col gap-4">
+                                    {userQuestions?.map(
+                                        ({
+                                            name,
+                                            difficulty,
+                                            timeElapsed,
+                                            notes,
+                                        }) => {
+                                            return (
+                                                <p
+                                                    key={name}
+                                                >{`${name} | ${difficulty} | ${formatTime(
+                                                    timeElapsed
+                                                )} | ${notes ? notes : ''}`}</p>
+                                            );
+                                        }
+                                    )}
+                                </div>
                             </TabsContent>
                             <TabsContent value="time-graph">
                                 Time graph for each difficulty
