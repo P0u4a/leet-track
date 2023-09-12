@@ -1,30 +1,9 @@
-'use client';
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useEffect, useState } from 'react';
 import { formatTime } from '@/lib/format-time';
+import { fetchQuestions } from '@/lib/queries/fetch-questions';
 
-type QuestionData = {
-    name: string;
-    difficulty: 'Easy' | 'Medium' | 'Hard';
-    timeElapsed: number;
-    notes: string | null;
-};
-
-export default function Dashboard() {
-    const [userQuestions, setUserQuestions] = useState<QuestionData[]>();
-    useEffect(() => {
-        const fetchQuestions = async () => {
-            const res = await fetch('/api/get-questions');
-            // TODO Send toast
-            if (res.status !== 200) return;
-            const data = await res.json();
-            setUserQuestions(data);
-        };
-
-        fetchQuestions();
-    });
-
+export default async function Dashboard() {
+    const questions = await fetchQuestions();
     return (
         <>
             <section className="container flex flex-col gap-6 py-8 md:py-12">
@@ -51,19 +30,37 @@ export default function Dashboard() {
                         <div className="pt-12">
                             <TabsContent value="solved-problems">
                                 <div className="flex flex-col gap-4">
-                                    {userQuestions?.map(
+                                    {questions?.map(
                                         ({
                                             name,
                                             difficulty,
                                             timeElapsed,
                                             notes,
+                                            tags,
                                         }) => {
                                             return (
-                                                <p
-                                                    key={name}
-                                                >{`${name} | ${difficulty} | ${formatTime(
-                                                    timeElapsed
-                                                )} | ${notes ? notes : ''}`}</p>
+                                                <p key={name}>
+                                                    {`${name} | ${difficulty} | ${formatTime(
+                                                        timeElapsed
+                                                    )} | ${
+                                                        notes ? notes : ''
+                                                    } | `}
+                                                    <ul>
+                                                        {tags.map(
+                                                            ({ name }) => {
+                                                                return (
+                                                                    <ul
+                                                                        key={
+                                                                            name
+                                                                        }
+                                                                    >
+                                                                        {name}
+                                                                    </ul>
+                                                                );
+                                                            }
+                                                        )}
+                                                    </ul>
+                                                </p>
                                             );
                                         }
                                     )}
