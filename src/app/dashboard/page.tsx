@@ -3,6 +3,8 @@ import { fetchQuestions } from '@/lib/queries/fetch-questions';
 import { columns } from '@/components/ui/columns';
 import { DataTable } from '@/components/data-table';
 import { mockQuestions } from '@/lib/temp-data';
+import { difficultyRatios } from '@/lib/formatting/diff-ratios';
+import DonutChart from '@/components/donut-chart';
 export default async function Dashboard() {
     // const questions = await fetchQuestions();
     // if (!questions) return;
@@ -40,7 +42,11 @@ export default async function Dashboard() {
                                 Time graph for each difficulty
                             </TabsContent>
                             <TabsContent value="diff-ratios">
-                                Difficulty ratios as circular percentages
+                                <div className="border border-solid border-stone-200 rounded-md">
+                                    <DonutChart
+                                        data={difficultyRatios(mockQuestions)}
+                                    />
+                                </div>
                             </TabsContent>
                             <TabsContent value="topic-freq">
                                 Topic frequencies as columns of loading bars
