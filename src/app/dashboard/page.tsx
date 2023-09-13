@@ -42,10 +42,10 @@ export default async function Dashboard() {
                                 Time graph for each difficulty
                             </TabsContent>
                             <TabsContent value="diff-ratios">
-                                <div className="border border-solid border-stone-200 rounded-md">
-                                    <DonutChart
-                                        data={difficultyRatios(mockQuestions)}
-                                    />
+                                <div className="flex justify-center items-center">
+                                    <div className="max-w-md flex justify-center items-center">
+                                        <DonutChart />
+                                    </div>
                                 </div>
                             </TabsContent>
                             <TabsContent value="topic-freq">
