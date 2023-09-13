@@ -3,6 +3,8 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { colorDifficulty } from '@/lib/formatting/color-difficulty';
 import { formatTime } from '@/lib/formatting/format-time';
+import { ArrowUpDown } from 'lucide-react';
+import { Button } from './button';
 import Tag from './tag';
 type Question = {
     tags: {
@@ -33,11 +35,23 @@ export const columns: ColumnDef<Question>[] = [
     },
     {
         accessorKey: 'timeElapsed',
-        header: 'Time',
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() =>
+                        column.toggleSorting(column.getIsSorted() === 'asc')
+                    }
+                >
+                    Time
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            );
+        },
         cell: ({ row }) => {
             const time = row.getValue('timeElapsed') as number;
             const formattedTime = formatTime(time);
-            return <div>{formattedTime}</div>;
+            return <div className="text-center">{formattedTime}</div>;
         },
     },
     {
