@@ -6,5 +6,5 @@ export function formatTime(milliseconds: number) {
     const remainingMinutes = (minutes % 60).toString().padStart(2, '0');
     const remainingHours = hours.toString().padStart(2, '0');
 
-    return `${remainingHours} : ${remainingMinutes} : ${remainingSeconds}`;
+    return `${remainingHours}:${remainingMinutes}:${remainingSeconds}`;
 }

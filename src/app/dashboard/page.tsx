@@ -1,9 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { formatTime } from '@/lib/format-time';
 import { fetchQuestions } from '@/lib/queries/fetch-questions';
-
+import { columns } from '@/components/ui/columns';
+import { DataTable } from '@/components/data-table';
+import { mockQuestions } from '@/lib/temp-data';
 export default async function Dashboard() {
-    const questions = await fetchQuestions();
+    // const questions = await fetchQuestions();
+    // if (!questions) return;
     return (
         <>
             <section className="container flex flex-col gap-6 py-8 md:py-12">
@@ -29,42 +31,10 @@ export default async function Dashboard() {
                         </TabsList>
                         <div className="pt-12">
                             <TabsContent value="solved-problems">
-                                <div className="flex flex-col gap-4">
-                                    {questions?.map(
-                                        ({
-                                            name,
-                                            difficulty,
-                                            timeElapsed,
-                                            notes,
-                                            tags,
-                                        }) => {
-                                            return (
-                                                <p key={name}>
-                                                    {`${name} | ${difficulty} | ${formatTime(
-                                                        timeElapsed
-                                                    )} | ${
-                                                        notes ? notes : ''
-                                                    } | `}
-                                                    <ul>
-                                                        {tags.map(
-                                                            ({ name }) => {
-                                                                return (
-                                                                    <ul
-                                                                        key={
-                                                                            name
-                                                                        }
-                                                                    >
-                                                                        {name}
-                                                                    </ul>
-                                                                );
-                                                            }
-                                                        )}
-                                                    </ul>
-                                                </p>
-                                            );
-                                        }
-                                    )}
-                                </div>
+                                <DataTable
+                                    columns={columns}
+                                    data={mockQuestions}
+                                />
                             </TabsContent>
                             <TabsContent value="time-graph">
                                 Time graph for each difficulty
