@@ -9,6 +9,7 @@ type Questions = {
     difficulty: Difficulty;
     timeElapsed: number;
     notes: string | null;
+    dateCompleted: string;
 }[];
 
 export function difficultyRatios(data: Questions) {

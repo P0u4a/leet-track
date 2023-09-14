@@ -4,7 +4,10 @@ import { columns } from '@/components/ui/columns';
 import { DataTable } from '@/components/data-table';
 import { mockQuestions } from '@/lib/temp-data';
 import { difficultyRatios } from '@/lib/formatting/diff-ratios';
+import { solveTimes } from '@/lib/formatting/solve-times';
 import DonutChart from '@/components/donut-chart';
+import TimeChart from '@/components/time-chart';
+
 export default async function Dashboard() {
     // const questions = await fetchQuestions();
     // if (!questions) return;
@@ -39,7 +42,7 @@ export default async function Dashboard() {
                                 />
                             </TabsContent>
                             <TabsContent value="time-graph">
-                                Time graph for each difficulty
+                                <TimeChart data={solveTimes(mockQuestions)} />
                             </TabsContent>
                             <TabsContent value="diff-ratios">
                                 <div className="flex justify-center items-center">
