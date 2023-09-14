@@ -44,7 +44,11 @@ export default async function Dashboard() {
                             <TabsContent value="diff-ratios">
                                 <div className="flex justify-center items-center">
                                     <div className="max-w-md flex justify-center items-center">
-                                        <DonutChart />
+                                        <DonutChart
+                                            data={difficultyRatios(
+                                                mockQuestions
+                                            )}
+                                        />
                                     </div>
                                 </div>
                             </TabsContent>

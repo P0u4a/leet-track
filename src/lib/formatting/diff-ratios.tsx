@@ -11,37 +11,31 @@ type Questions = {
     notes: string | null;
 }[];
 
-type DiffRatios = {
-    difficulty: Difficulty;
-    percentage: number;
-}[];
-
 export function difficultyRatios(data: Questions) {
     const n = data.length;
-    let easyCount = 0;
-    let mediumCount = 0;
-    let hardCount = 0;
+    const diffCounts = {
+        easyCount: 0,
+        mediumCount: 0,
+        hardCount: 0,
+    };
 
     for (const question of data) {
-        if (question.difficulty === 'Easy') easyCount++;
-        if (question.difficulty === 'Medium') mediumCount++;
-        if (question.difficulty === 'Hard') hardCount++;
+        if (question.difficulty === 'Easy') diffCounts.easyCount++;
+        if (question.difficulty === 'Medium') diffCounts.mediumCount++;
+        if (question.difficulty === 'Hard') diffCounts.hardCount++;
     }
 
-    const res: DiffRatios = [
-        {
-            difficulty: 'Easy',
-            percentage: parseFloat(((easyCount / n) * 100).toFixed(2)),
-        },
-        {
-            difficulty: 'Medium',
-            percentage: parseFloat(((mediumCount / n) * 100).toFixed(2)),
-        },
-        {
-            difficulty: 'Hard',
-            percentage: parseFloat(((hardCount / n) * 100).toFixed(2)),
-        },
-    ];
+    let res: number[] = [];
 
+    for (const count in diffCounts) {
+        res.push(
+            parseFloat(
+                (
+                    (diffCounts[count as keyof typeof diffCounts] / n) *
+                    100
+                ).toFixed(2)
+            )
+        );
+    }
     return res;
 }
