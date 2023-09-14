@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
+import { auth } from '@clerk/nextjs';
 import { Timer, LineChart, Zap } from 'lucide-react';
 
 export default function Home() {
+    const { userId } = auth();
     return (
         <>
-            <section className="space-y-6 pb-8 pt-6">
+            <section className="space-y-6 pb-8 pt-10">
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
                     <Link
                         href={
@@ -26,7 +28,7 @@ export default function Home() {
                     </p>
                     <div className="flex flex-col gap-4 md:flex-row">
                         <Link
-                            href="/dashboard"
+                            href={`${userId ? '/dashboard' : '/sign-in'}`}
                             className={cn(buttonVariants({ size: 'lg' }))}
                         >
                             Get Started

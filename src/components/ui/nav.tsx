@@ -28,18 +28,33 @@ export default function Header() {
             </SignedOut>
 
             <SignedIn>
-                <UserButton
-                    afterSignOutUrl="http://localhost:3000/"
-                    userProfileMode="navigation"
-                    userProfileUrl="http://localhost:3000/account"
-                    appearance={{
-                        elements: {
-                            userButtonPopoverCard:
-                                'shadow-md rounded-md border-stone-200',
-                            userButtonPopoverActionButtonText: 'text-stone-950',
-                        },
-                    }}
-                />
+                <div className="flex flex-row gap-4 md:gap-6 items-center">
+                    <Link
+                        href={'/dashboard'}
+                        className={cn(
+                            buttonVariants({
+                                variant: 'outline',
+                                size: 'sm',
+                            }),
+                            'text-base group'
+                        )}
+                    >
+                        Dashboard
+                    </Link>
+                    <UserButton
+                        afterSignOutUrl="http://localhost:3000/"
+                        userProfileMode="navigation"
+                        userProfileUrl="http://localhost:3000/account"
+                        appearance={{
+                            elements: {
+                                userButtonPopoverCard:
+                                    'shadow-md rounded-md border-stone-200',
+                                userButtonPopoverActionButtonText:
+                                    'text-stone-950',
+                            },
+                        }}
+                    />
+                </div>
             </SignedIn>
         </nav>
     );
