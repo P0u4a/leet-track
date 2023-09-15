@@ -82,6 +82,13 @@ export default function TimeChart({ data }: TimeChartProps) {
                         },
                     },
                 },
+                plugins: {
+                    tooltip: {
+                        backgroundColor: '#f5f5f4',
+                        titleColor: '#0c0a09',
+                        bodyColor: '#0c0a09',
+                    },
+                },
             }}
         />
     );

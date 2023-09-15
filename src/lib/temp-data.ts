@@ -1,16 +1,6 @@
-type Question = {
-    tags: {
-        name: string;
-    }[];
-    id: number;
-    name: string;
-    difficulty: 'Easy' | 'Medium' | 'Hard';
-    timeElapsed: number;
-    notes: string | null;
-    dateCompleted: string;
-};
+import { Questions } from '@/types/questions';
 
-export const mockQuestions: Question[] = [
+export const mockQuestions: Questions = [
     {
         id: 1,
         name: 'Fair Distribution of Cookies',
@@ -24,7 +14,7 @@ export const mockQuestions: Question[] = [
             { name: 'dynamic programming' },
             { name: 'bitmasking' },
         ],
-        dateCompleted: '2023-01-15 09-22-03',
+        dateCompleted: '2023-01-15 09:22:03',
     },
     {
         id: 2,
@@ -37,7 +27,7 @@ export const mockQuestions: Question[] = [
             { name: 'backtracking' },
             { name: 'recursion' },
         ],
-        dateCompleted: '2023-01-15 16-04-33',
+        dateCompleted: '2023-01-15 16:04:33',
     },
     {
         id: 3,
@@ -51,7 +41,7 @@ export const mockQuestions: Question[] = [
             { name: 'breadth first search' },
             { name: 'sorting' },
         ],
-        dateCompleted: '2023-02-03 12-20-12',
+        dateCompleted: '2023-02-03 12:20:12',
     },
     {
         id: 4,
@@ -87,7 +77,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 45000,
         notes: 'Some notes for this question.',
         tags: [{ name: 'array' }, { name: 'hashmap' }],
-        dateCompleted: '2023-04-01 08-15-42',
+        dateCompleted: '2023-04-01 08:15:42',
     },
     {
         id: 8,
@@ -96,7 +86,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 720000,
         notes: 'Notes for the second new question.',
         tags: [{ name: 'sorting' }, { name: 'greedy' }],
-        dateCompleted: '2023-04-10 14-30-20',
+        dateCompleted: '2023-04-10 14:30:20',
     },
     // Add more entries to reach a total of 15
     {
@@ -106,7 +96,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 240000,
         notes: 'Notes for the third new question.',
         tags: [{ name: 'array' }, { name: 'recursion' }],
-        dateCompleted: '2023-04-18 10-55-05',
+        dateCompleted: '2023-04-18 10:55:05',
     },
     {
         id: 10,
@@ -115,7 +105,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 600000,
         notes: 'Notes for the fourth new question.',
         tags: [{ name: 'array' }, { name: 'backtracking' }],
-        dateCompleted: '2023-04-22 19-12-34',
+        dateCompleted: '2023-04-22 19:12:34',
     },
     {
         id: 11,
@@ -124,7 +114,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 15000,
         notes: 'Notes for the fifth new question.',
         tags: [{ name: 'hashmap' }, { name: 'array' }],
-        dateCompleted: '2023-05-05 11-08-17',
+        dateCompleted: '2023-05-05 11:08:17',
     },
     {
         id: 12,
@@ -133,7 +123,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 360000,
         notes: 'Notes for the sixth new question.',
         tags: [{ name: 'binary tree' }, { name: 'depth first search' }],
-        dateCompleted: '2023-05-10 08-42-56',
+        dateCompleted: '2023-05-10 08:42:56',
     },
     {
         id: 13,
@@ -142,7 +132,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 900000,
         notes: 'Notes for the seventh new question.',
         tags: [{ name: 'sorting' }, { name: 'dynamic programming' }],
-        dateCompleted: '2023-05-18 16-25-30',
+        dateCompleted: '2023-05-18 16:25:30',
     },
     {
         id: 14,
@@ -151,7 +141,7 @@ export const mockQuestions: Question[] = [
         timeElapsed: 420000,
         notes: 'Notes for the eighth new question.',
         tags: [{ name: 'array' }, { name: 'string' }],
-        dateCompleted: '2023-05-23 14-19-48',
+        dateCompleted: '2023-05-23 14:19:48',
     },
     {
         id: 15,
@@ -160,6 +150,6 @@ export const mockQuestions: Question[] = [
         timeElapsed: 30000,
         notes: 'Notes for the ninth new question.',
         tags: [{ name: 'hashmap' }, { name: 'recursion' }],
-        dateCompleted: '2023-05-30 09-53-02',
+        dateCompleted: '2023-05-30 09:53:02',
     },
 ];
