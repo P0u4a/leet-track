@@ -1,4 +1,5 @@
 import type { Questions } from '@/types/questions';
+import { format } from 'date-fns';
 
 type Data = {
     easy: {
@@ -24,19 +25,19 @@ export function solveTimes(data: Questions) {
 
     for (const question of data) {
         if (question.difficulty === 'Easy')
-            res.easy?.push({
+            res.easy.push({
                 y: question.timeElapsed,
-                x: question.dateCompleted,
+                x: format(question.dateCompleted, 'yyyy-MM-dd HH:mm:ss'),
             });
         else if (question.difficulty === 'Medium')
-            res.medium?.push({
+            res.medium.push({
                 y: question.timeElapsed,
-                x: question.dateCompleted,
+                x: format(question.dateCompleted, 'yyyy-MM-dd HH:mm:ss'),
             });
         else
-            res.hard?.push({
+            res.hard.push({
                 y: question.timeElapsed,
-                x: question.dateCompleted,
+                x: format(question.dateCompleted, 'yyyy-MM-dd HH:mm:ss'),
             });
     }
 

@@ -38,6 +38,9 @@ export default function TopicsChart({ data }: TopicsChartProps) {
                     },
                     y: {
                         grid: { display: false },
+                        ticks: {
+                            stepSize: 1,
+                        },
                     },
                 },
                 plugins: {

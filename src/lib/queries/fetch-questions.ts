@@ -26,6 +26,7 @@ export async function fetchQuestions() {
             difficulty: questions.difficulty,
             timeElapsed: questions.timeElapsed,
             notes: questions.notes,
+            dateCompleted: questions.dateCompleted,
         })
         .from(questions)
         .where(eq(questions.userId, user.id));
