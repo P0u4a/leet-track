@@ -2,7 +2,7 @@ import { UserProfile } from '@clerk/nextjs';
 
 export default function Account() {
     return (
-        <div className="flex justify-center py-20">
+        <div className="flex justify-center items-center">
             <UserProfile
                 appearance={{
                     variables: {
