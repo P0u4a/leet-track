@@ -1,9 +1,9 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
-import { eq } from 'drizzle-orm';
+import { eq, inArray } from 'drizzle-orm';
 import { db } from '@/db';
-import { users } from '@/db/schema';
+import { questions, tagAllocations, users } from '@/db/schema';
 
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET!;
 
@@ -51,7 +51,20 @@ export async function POST(req: Request) {
     if (eventType === 'user.created') {
         await db.insert(users).values({ id: id });
     } else if (eventType === 'user.deleted') {
-        // delete user id from users table and other tables where it appears
+        // get questionIds to be deleted
+        const qids = await db
+            .select({ questionId: questions.id })
+            .from(questions)
+            .where(eq(questions.userId, id));
+        // Use questionIds to delete their tag allocations
+        await db.delete(tagAllocations).where(
+            inArray(
+                tagAllocations.questionId,
+                qids.map((qid) => qid.questionId)
+            )
+        );
+        // Delete the rest
+        await db.delete(questions).where(eq(questions.userId, id));
         await db.delete(users).where(eq(users.id, id));
     }
 
