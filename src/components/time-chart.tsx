@@ -74,12 +74,15 @@ export default function TimeChart({ data }: TimeChartProps) {
                         time: {
                             unit: 'day',
                         },
+                        grid: { display: false },
                     },
                     y: {
                         ticks: {
                             callback: (v) => formatTime(v as number),
                             stepSize: 10,
                         },
+
+                        grid: { display: false },
                     },
                 },
                 plugins: {

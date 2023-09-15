@@ -5,8 +5,10 @@ import { DataTable } from '@/components/data-table';
 import { mockQuestions } from '@/lib/temp-data';
 import { difficultyRatios } from '@/lib/formatting/diff-ratios';
 import { solveTimes } from '@/lib/formatting/solve-times';
+import { topicCounts } from '@/lib/formatting/topic-counts';
 import DonutChart from '@/components/donut-chart';
 import TimeChart from '@/components/time-chart';
+import TopicsChart from '@/components/topics-chart';
 
 export default async function Dashboard() {
     // const questions = await fetchQuestions();
@@ -56,7 +58,9 @@ export default async function Dashboard() {
                                 </div>
                             </TabsContent>
                             <TabsContent value="topic-freq">
-                                Topic frequencies as columns of loading bars
+                                <TopicsChart
+                                    data={topicCounts(mockQuestions)}
+                                />
                             </TabsContent>
                         </div>
                     </Tabs>
