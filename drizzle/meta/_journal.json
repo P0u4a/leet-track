@@ -15,6 +15,13 @@
       "when": 1694430410120,
       "tag": "0001_unusual_leopardon",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1694788603510,
+      "tag": "0002_breezy_marvel_boy",
+      "breakpoints": true
     }
   ]
 }

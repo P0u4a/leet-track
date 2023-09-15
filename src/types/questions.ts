@@ -9,5 +9,5 @@ export type Questions = {
     difficulty: Difficulty;
     timeElapsed: number;
     notes: string | null;
-    dateCompleted: string;
+    dateCompleted: Date;
 }[];

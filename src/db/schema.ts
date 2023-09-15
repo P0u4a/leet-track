@@ -5,8 +5,9 @@ import {
     varchar,
     mysqlEnum,
     int,
+    timestamp,
 } from 'drizzle-orm/mysql-core';
-
+import { sql } from 'drizzle-orm';
 export const questions = mysqlTable(
     'questions',
     {
@@ -19,6 +20,9 @@ export const questions = mysqlTable(
         ]).notNull(),
         timeElapsed: int('time_elapsed').notNull(),
         notes: varchar('notes', { length: 255 }),
+        dateCompleted: timestamp('date_completed')
+            .notNull()
+            .default(sql`CURRENT_TIMESTAMP`),
         userId: varchar('user_id', { length: 64 }).notNull(),
     },
     (table) => {

@@ -1,0 +1,1 @@
+ALTER TABLE `questions` ADD `date_completed` timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL;
