@@ -11,8 +11,8 @@ import TimeChart from '@/components/time-chart';
 import TopicsChart from '@/components/topics-chart';
 
 export default async function Dashboard() {
-    const questions = await fetchQuestions();
-    if (!questions) return;
+    // const questions = await fetchQuestions();
+    // if (!questions) return;
     return (
         <>
             <section className="container flex flex-col gap-6 py-8 md:py-12">
@@ -36,24 +36,31 @@ export default async function Dashboard() {
                                 Topic Frequencies
                             </TabsTrigger>
                         </TabsList>
-                        <div className="pt-12">
+                        <div className="py-12">
                             <TabsContent value="solved-problems">
-                                <DataTable columns={columns} data={questions} />
+                                <DataTable
+                                    columns={columns}
+                                    data={mockQuestions}
+                                />
                             </TabsContent>
                             <TabsContent value="time-graph">
-                                <TimeChart data={solveTimes(questions)} />
+                                <TimeChart data={solveTimes(mockQuestions)} />
                             </TabsContent>
                             <TabsContent value="diff-ratios">
                                 <div className="flex justify-center items-center">
                                     <div className="max-w-md flex justify-center items-center">
                                         <DonutChart
-                                            data={difficultyRatios(questions)}
+                                            data={difficultyRatios(
+                                                mockQuestions
+                                            )}
                                         />
                                     </div>
                                 </div>
                             </TabsContent>
                             <TabsContent value="topic-freq">
-                                <TopicsChart data={topicCounts(questions)} />
+                                <TopicsChart
+                                    data={topicCounts(mockQuestions)}
+                                />
                             </TabsContent>
                         </div>
                     </Tabs>
