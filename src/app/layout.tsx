@@ -22,10 +22,10 @@ export default function RootLayout({
         <ClerkProvider>
             <html lang="en">
                 <body
-                    className={`min-h-screen bg-background font-sans antialiased ${inter.className}`}
+                    className={`flex flex-col min-h-screen bg-background font-sans antialiased ${inter.className}`}
                 >
                     <Nav />
-                    {children}
+                    <main className="flex-1">{children}</main>
                     <Footer />
                     <Toaster />
                 </body>
