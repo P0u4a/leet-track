@@ -14,7 +14,7 @@ export const mockQuestions: Questions = [
             { name: 'dynamic programming' },
             { name: 'bitmasking' },
         ],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 29, 14, 30, 0),
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ export const mockQuestions: Questions = [
             { name: 'backtracking' },
             { name: 'recursion' },
         ],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 29, 15, 0, 0),
     },
     {
         id: 3,
@@ -41,7 +41,7 @@ export const mockQuestions: Questions = [
             { name: 'breadth first search' },
             { name: 'sorting' },
         ],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 29, 15, 30, 0),
     },
     {
         id: 4,
@@ -50,7 +50,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 21000,
         notes: '',
         tags: [{ name: 'array' }, { name: 'string' }, { name: 'hashmap' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 30, 10, 0, 0),
     },
     {
         id: 5,
@@ -59,7 +59,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 0,
         notes: 'Two sum very cool. This is a very long description that I am using to limit test the size of each row, hopefully it does not look too crazy otherwise I am going to have to do some styling to make it work which i do not want to do because styling things is kind of boring the logic of frontend stuff is wayyyy more interesting you know what I mean?',
         tags: [{ name: 'hashmap' }, { name: 'array' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 30, 12, 0, 0),
     },
     {
         id: 6,
@@ -68,7 +68,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 300020,
         notes: '',
         tags: [{ name: 'array' }, { name: 'sorting' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 30, 14, 30, 0),
     },
     {
         id: 7,
@@ -77,7 +77,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 45000,
         notes: 'Some notes for this question.',
         tags: [{ name: 'array' }, { name: 'hashmap' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 30, 16, 0, 0),
     },
     {
         id: 8,
@@ -86,7 +86,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 720000,
         notes: 'Notes for the second new question.',
         tags: [{ name: 'sorting' }, { name: 'greedy' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 30, 18, 30, 0),
     },
     // Add more entries to reach a total of 15
     {
@@ -96,7 +96,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 240000,
         notes: 'Notes for the third new question.',
         tags: [{ name: 'array' }, { name: 'recursion' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 30, 20, 0, 0),
     },
     {
         id: 10,
@@ -105,7 +105,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 600000,
         notes: 'Notes for the fourth new question.',
         tags: [{ name: 'array' }, { name: 'backtracking' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 31, 9, 0, 0),
     },
     {
         id: 11,
@@ -114,7 +114,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 15000,
         notes: 'Notes for the fifth new question.',
         tags: [{ name: 'hashmap' }, { name: 'array' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 31, 11, 30, 0),
     },
     {
         id: 12,
@@ -123,7 +123,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 360000,
         notes: 'Notes for the sixth new question.',
         tags: [{ name: 'binary tree' }, { name: 'depth first search' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 31, 14, 0, 0),
     },
     {
         id: 13,
@@ -132,7 +132,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 900000,
         notes: 'Notes for the seventh new question.',
         tags: [{ name: 'sorting' }, { name: 'dynamic programming' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 31, 14, 30, 0),
     },
     {
         id: 14,
@@ -141,7 +141,7 @@ export const mockQuestions: Questions = [
         timeElapsed: 420000,
         notes: 'Notes for the eighth new question.',
         tags: [{ name: 'array' }, { name: 'string' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 31, 15, 0, 0),
     },
     {
         id: 15,
@@ -150,6 +150,6 @@ export const mockQuestions: Questions = [
         timeElapsed: 30000,
         notes: 'Notes for the ninth new question.',
         tags: [{ name: 'hashmap' }, { name: 'recursion' }],
-        dateCompleted: new Date(),
+        dateCompleted: new Date(2023, 8, 31, 15, 30, 0),
     },
 ];
