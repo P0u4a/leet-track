@@ -26,8 +26,8 @@ export default function TopicsChart({ data }: TopicsChartProps) {
                     {
                         data: data.counts,
                         label: 'Count',
-                        backgroundColor: 'rgb(12 10 9 / 0.9)',
-                        hoverBackgroundColor: '#0c0a09',
+                        backgroundColor: 'rgb(2 132 199 / 0.9)',
+                        hoverBackgroundColor: '#0284c7',
                     },
                 ],
             }}
