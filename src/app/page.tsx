@@ -19,7 +19,7 @@ export default function Home() {
                     >
                         Download for Chrome
                     </Link>
-                    <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pb-4">
+                    <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
                     <p className="max-w-xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
@@ -101,7 +101,7 @@ export default function Home() {
                     <h2 className="text-3xl leading-[1.1] sm:text-3xl md:text-6xl font-bold pb-2">
                         Begin tracking today
                     </h2>
-                    <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 pb-12">
+                    <p className="max-w-sm leading-normal text-muted-foreground sm:text-lg sm:leading-7 pb-12">
                         Tracking your Leetcode progress is a tried and tested
                         way to achieve success.
                     </p>

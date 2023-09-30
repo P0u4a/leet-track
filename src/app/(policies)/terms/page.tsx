@@ -7,7 +7,7 @@ export default function Terms() {
             <h3>
                 <strong>Last Updated: September 16, 2023</strong>
             </h3>
-            <div className="flex flex-col gap-5 max-w-5xl leading-normal sm:text-xl sm:leading-8 text-justify">
+            <div className="flex flex-col gap-5 max-w-xs md:max-w-5xl leading-normal text-sm sm:text-xl sm:leading-8 text-justify">
                 <h2 className="font-bold">1. Acceptance of Terms</h2>
                 <p>
                     By accessing or using the Service, you affirm that you are
