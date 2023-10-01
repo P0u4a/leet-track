@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
+
 ChartJS.register(
     TimeScale,
     LinearScale,
@@ -90,6 +91,17 @@ export default function TimeChart({ data }: TimeChartProps) {
                         backgroundColor: '#f5f5f4',
                         titleColor: '#0c0a09',
                         bodyColor: '#0c0a09',
+                        callbacks: {
+                            label: (context) => {
+                                const datapoint =
+                                    context.dataset.data[context.dataIndex];
+                                if (typeof datapoint === 'number')
+                                    return formatTime(datapoint);
+
+                                if (datapoint?.y === undefined) return;
+                                return formatTime(datapoint.y);
+                            },
+                        },
                     },
                 },
             }}
