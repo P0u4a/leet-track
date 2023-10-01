@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/table';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { Questions } from '@/types/questions';
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -34,9 +35,9 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-
+    const [qData, setQData] = useState(data);
     const table = useReactTable({
-        data,
+        data: qData,
         columns,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
@@ -47,6 +48,14 @@ export function DataTable<TData, TValue>({
         state: {
             sorting,
             columnFilters,
+        },
+        meta: {
+            deleteRow: (rowIndex: number) => {
+                const filterQuestions = (prev: TData[]) =>
+                    prev.filter((_row, index) => index !== rowIndex);
+
+                setQData(filterQuestions);
+            },
         },
     });
     return (

@@ -91,7 +91,7 @@ export const columns: ColumnDef<Question>[] = [
     },
     {
         id: 'actions',
-        cell: ({ row }) => {
+        cell: ({ row, table }) => {
             const question = row.original;
 
             return (
@@ -103,14 +103,14 @@ export const columns: ColumnDef<Question>[] = [
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                        <DropdownMenuItem className="hover:cursor-pointer font-semibold">
+                            Edit Notes
+                        </DropdownMenuItem>
                         <DropdownMenuItem
                             className="text-rose-600 hover:cursor-pointer font-semibold"
-                            onClick={() => {
-                                // Delete question
-                                deleteQuestion(question.id);
-                                // TODO Update state without fullpage reload
-                                location.reload();
+                            onClick={async () => {
+                                await deleteQuestion(question.id);
+                                table.options.meta?.deleteRow(row.index);
                             }}
                         >
                             Delete Entry
