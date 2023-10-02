@@ -22,7 +22,6 @@ import {
 } from '@/components/ui/table';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Questions } from '@/types/questions';
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -55,6 +54,23 @@ export function DataTable<TData, TValue>({
                     prev.filter((_row, index) => index !== rowIndex);
 
                 setQData(filterQuestions);
+            },
+            editCell: (
+                newValue: string,
+                rowIndex: number,
+                columnId: string
+            ) => {
+                setQData((prev) =>
+                    prev.map((row, index) => {
+                        if (index === rowIndex) {
+                            return {
+                                ...prev[rowIndex],
+                                [columnId]: newValue,
+                            };
+                        }
+                        return row;
+                    })
+                );
             },
         },
     });

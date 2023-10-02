@@ -22,7 +22,7 @@ export default async function Dashboard() {
                     </h1>
 
                     <Tabs defaultValue="solved-problems">
-                        <TabsList className="grid md:w-full grid-cols-2 md:grid-cols-4 h-full">
+                        <TabsList className="grid md:w-full grid-cols-1 md:grid-cols-4 h-full">
                             <TabsTrigger value="solved-problems">
                                 Solved Problems
                             </TabsTrigger>

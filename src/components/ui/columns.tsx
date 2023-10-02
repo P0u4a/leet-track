@@ -3,27 +3,11 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { colorDifficulty } from '@/lib/formatting/color-difficulty';
 import { formatTime } from '@/lib/formatting/format-time';
-import { deleteQuestion } from '@/lib/queries/delete-question';
-import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
+import { ArrowUpDown } from 'lucide-react';
 import { Button } from './button';
 import Tag from './tag';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-type Question = {
-    tags: {
-        name: string;
-    }[];
-    id: number;
-    name: string;
-    difficulty: 'Easy' | 'Medium' | 'Hard';
-    timeElapsed: number;
-    notes: string | null;
-};
+import ActionsColumn from './actions-column';
+import type { Question } from '@/types/questions';
 
 export const columns: ColumnDef<Question>[] = [
     {
@@ -84,40 +68,16 @@ export const columns: ColumnDef<Question>[] = [
     {
         accessorKey: 'notes',
         header: 'Notes',
+        id: 'notes',
         cell: ({ row }) => {
             const notes = row.getValue('notes') as string;
-            return <div className="max-w-md">{notes}</div>;
+            return <p className="max-w-md">{notes}</p>;
         },
     },
     {
         id: 'actions',
         cell: ({ row, table }) => {
-            const question = row.original;
-
-            return (
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
-                            <span className="sr-only">Open menu</span>
-                            <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuItem className="hover:cursor-pointer font-semibold">
-                            Edit Notes
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                            className="text-rose-600 hover:cursor-pointer font-semibold"
-                            onClick={async () => {
-                                await deleteQuestion(question.id);
-                                table.options.meta?.deleteRow(row.index);
-                            }}
-                        >
-                            Delete Entry
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            );
+            return <ActionsColumn row={row} table={table} />;
         },
     },
 ];
