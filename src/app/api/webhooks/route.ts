@@ -37,7 +37,7 @@ export async function POST(req: Request) {
         }) as WebhookEvent;
     } catch (err) {
         console.error('Error verifying webhook:', err);
-        return new Response('Error occured', {
+        return new Response('Error verifying webhook', {
             status: 400,
         });
     }
@@ -49,24 +49,32 @@ export async function POST(req: Request) {
     if (!id) return new Response('Internal Error', { status: 500 });
 
     if (eventType === 'user.created') {
-        await db.insert(users).values({ id: id });
+        try {
+            await db.insert(users).values({ id: id });
+        } catch (err) {
+            return new Response('Internal Error', { status: 500 });
+        }
     } else if (eventType === 'user.deleted') {
-        // get questionIds to be deleted
-        const qids = await db
-            .select({ questionId: questions.id })
-            .from(questions)
-            .where(eq(questions.userId, id));
-        // Use questionIds to delete their tag allocations
-        await db.delete(tagAllocations).where(
-            inArray(
-                tagAllocations.questionId,
-                qids.map((qid) => qid.questionId)
-            )
-        );
-        // Delete the rest
-        await db.delete(questions).where(eq(questions.userId, id));
-        await db.delete(users).where(eq(users.id, id));
+        try {
+            // get questionIds to be deleted
+            const qids = await db
+                .select({ questionId: questions.id })
+                .from(questions)
+                .where(eq(questions.userId, id));
+            // Use questionIds to delete their tag allocations
+            await db.delete(tagAllocations).where(
+                inArray(
+                    tagAllocations.questionId,
+                    qids.map((qid) => qid.questionId)
+                )
+            );
+            // Delete the rest
+            await db.delete(questions).where(eq(questions.userId, id));
+            await db.delete(users).where(eq(users.id, id));
+        } catch (err) {
+            return new Response('Internal Error', { status: 500 });
+        }
     }
 
-    return new Response('', { status: 201 });
+    return new Response(null, { status: 201 });
 }

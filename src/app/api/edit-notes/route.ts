@@ -8,17 +8,20 @@ const EditNotesSchema = z.object({
     newNote: z.string(),
 });
 
-// TODO: add error handling for each db call
 export async function POST(req: Request) {
     const res = EditNotesSchema.safeParse(req.body);
     if (!res.success) return new Response('Invalid Request', { status: 400 });
 
     const { questionId, newNote } = res.data;
 
-    await db
-        .update(questions)
-        .set({ notes: newNote })
-        .where(eq(questions.id, questionId));
+    try {
+        await db
+            .update(questions)
+            .set({ notes: newNote })
+            .where(eq(questions.id, questionId));
+    } catch (err) {
+        return new Response('Internal Error', { status: 500 });
+    }
 
-    return new Response('', { status: 200 });
+    return new Response('Note edited successfully', { status: 200 });
 }
