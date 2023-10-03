@@ -48,8 +48,8 @@ export default function ActionsColumn({ row, table }: ActionsColumnProps) {
                     <DropdownMenuItem
                         className="text-rose-600 hover:cursor-pointer font-semibold"
                         onClick={async () => {
-                            await deleteQuestion(row.original.id);
                             table.options.meta?.deleteRow(row.index);
+                            await deleteQuestion(row.original.id);
                         }}
                     >
                         Delete Entry

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
     ColumnDef,
     flexRender,
@@ -37,7 +37,7 @@ export function DataTable<TData, TValue>({
     const [qData, setQData] = useState(data);
     const table = useReactTable({
         data: qData,
-        columns,
+        columns: useMemo(() => columns, [columns]),
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
