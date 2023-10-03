@@ -1,19 +1,24 @@
 import { currentUser } from '@clerk/nextjs';
 import { db } from '@/db';
 import { questions, tagAllocations, tags } from '@/db/schema';
+import { z } from 'zod';
 
-type requetType = {
-    title: string;
-    difficulty: 'Easy' | 'Medium' | 'Hard';
-    time: number;
-    topicTags: string[];
-    notes?: string;
-};
+const requestSchema = z.object({
+    title: z.string(),
+    difficulty: z.enum(['Easy', 'Medium', 'Hard']),
+    time: z.number(),
+    topicTags: z.array(z.string()),
+    notes: z.string().optional(),
+});
+
 // TODO: add error handling for each db call
 export async function POST(req: Request) {
-    // TODO: add validation here with zod
-    const { title, difficulty, time, notes, topicTags }: requetType =
-        await req.json();
+    const res = requestSchema.safeParse(req.body);
+
+    if (!res.success) return new Response('Invalid request', { status: 400 });
+
+    const { title, difficulty, time, notes, topicTags } = res.data;
+
     const user = await currentUser();
     if (!user) return;
 
