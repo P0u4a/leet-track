@@ -13,6 +13,7 @@ const QuestionSchema = z.object({
     difficulty: DifficultySchema,
     timeElapsed: z.number(),
     notes: z.string().nullable(),
+    dateCompleted: z.date(),
 });
 
 export type Question = z.infer<typeof QuestionSchema>;
