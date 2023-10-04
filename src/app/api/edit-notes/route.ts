@@ -9,7 +9,8 @@ const EditNotesSchema = z.object({
 });
 
 export async function POST(req: Request) {
-    const res = EditNotesSchema.safeParse(req.body);
+    const data = await req.json();
+    const res = EditNotesSchema.safeParse(data);
     if (!res.success) return new Response('Invalid Request', { status: 400 });
 
     const { questionId, newNote } = res.data;

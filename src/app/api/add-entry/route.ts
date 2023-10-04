@@ -12,7 +12,8 @@ const requestSchema = z.object({
 });
 
 export async function POST(req: Request) {
-    const res = requestSchema.safeParse(req.body);
+    const data = await req.json();
+    const res = requestSchema.safeParse(data);
 
     if (!res.success) return new Response('Invalid request', { status: 400 });
 
