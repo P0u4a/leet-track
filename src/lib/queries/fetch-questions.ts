@@ -1,7 +1,7 @@
 import { questions, tagAllocations } from '@/db/schema';
 import { db } from '@/db';
 import { currentUser } from '@clerk/nextjs';
-import { eq } from 'drizzle-orm';
+import { eq, desc } from 'drizzle-orm';
 
 async function getQuestionTags(id: number) {
     try {
@@ -32,7 +32,8 @@ export async function fetchQuestions() {
                 dateCompleted: questions.dateCompleted,
             })
             .from(questions)
-            .where(eq(questions.userId, user.id));
+            .where(eq(questions.userId, user.id))
+            .orderBy(desc(questions.dateCompleted));
 
         const questionTagsPromises = userQuestions.map(async (question) => ({
             ...question,
