@@ -2,7 +2,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { fetchQuestions } from '@/lib/queries/fetch-questions';
 import { columns } from '@/components/ui/columns';
 import { DataTable } from '@/components/data-table';
-import { mockQuestions } from '@/lib/temp-data';
 import { difficultyRatios } from '@/lib/formatting/diff-ratios';
 import { solveTimes } from '@/lib/formatting/solve-times';
 import { topicCounts } from '@/lib/formatting/topic-counts';
@@ -38,10 +37,7 @@ export default async function Dashboard() {
                         </TabsList>
                         <div className="py-12">
                             <TabsContent value="solved-problems">
-                                <DataTable
-                                    columns={columns}
-                                    data={questions}
-                                />
+                                <DataTable columns={columns} data={questions} />
                             </TabsContent>
                             <TabsContent value="time-graph">
                                 <TimeChart data={solveTimes(questions)} />
@@ -50,17 +46,13 @@ export default async function Dashboard() {
                                 <div className="flex justify-center items-center">
                                     <div className="max-w-md flex justify-center items-center">
                                         <DonutChart
-                                            data={difficultyRatios(
-                                                questions
-                                            )}
+                                            data={difficultyRatios(questions)}
                                         />
                                     </div>
                                 </div>
                             </TabsContent>
                             <TabsContent value="topic-freq">
-                                <TopicsChart
-                                    data={topicCounts(questions)}
-                                />
+                                <TopicsChart data={topicCounts(questions)} />
                             </TabsContent>
                         </div>
                     </Tabs>

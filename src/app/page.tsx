@@ -19,7 +19,7 @@ export default function Home() {
                     >
                         Download for Chrome
                     </Link>
-                    <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold pb-4">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
                     <p className="max-w-xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
