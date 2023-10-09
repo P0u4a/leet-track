@@ -5,66 +5,93 @@ export default function Privacy() {
                 Privacy Policy
             </h1>
             <h3>
-                <strong>Last Updated:</strong> September 16, 2023
+                <strong>Last Updated:</strong> October 09, 2023
             </h3>
 
             <div className="flex flex-col gap-5 max-w-xs md:max-w-5xl leading-normal text-sm sm:text-xl sm:leading-8 text-justify">
-                <h2 className="font-bold">1. Introduction</h2>
                 <p>
-                    Welcome to LeetTrack&apos;s Privacy Policy. This Privacy
-                    Policy explains how your personal information is collected,
-                    used, and disclosed when you use our Service.
+                    This Privacy Policy (&quot;Policy&quot;) outlines how [Your
+                    Company Name] (&quot;Company,&quot; &quot;We,&quot;
+                    &quot;Us,&quot; or &quot;Our&quot;) collects, uses,
+                    discloses, and protects Your personal information when You
+                    use Our website or services. By using Our website or
+                    services, You consent to the practices described in this
+                    Policy.
                 </p>
 
-                <h2 className="font-bold">2. Information We Collect</h2>
+                <h2 className="font-bold">1. Information We Collect</h2>
                 <p>
-                    LeetTrack collects information provided by users during the
-                    GitHub OAuth authentication process. This information may
-                    include your GitHub username and email address. We do not
-                    collect any additional personal information.
+                    a. Personal Information: We may collect personal information
+                    that You provide directly, such as Your name, email address,
+                    postal address, phone number, and other identifying
+                    information.
+                </p>
+                <p>
+                    b. Automatically Collected Information: We may collect
+                    certain information automatically when You visit Our
+                    website, including Your IP address, browser type, operating
+                    system, and browsing behavior through the use of cookies,
+                    web beacons, or similar technologies.
                 </p>
 
-                <h2 className="font-bold">3. Use of Your Information</h2>
+                <h2 className="font-bold">2. Use of Your Information</h2>
                 <p>
-                    The information collected is used solely for the purpose of
-                    enabling the functionality of the LeetTrack app. We do not
-                    use your information for any other purpose.
+                    a. We may use Your personal information for the following
+                    purposes:
+                    <ul className="list-disc pl-8">
+                        <li>
+                            To provide and improve Our products and services.
+                        </li>
+                        <li>
+                            To communicate with You, respond to Your inquiries,
+                            and provide customer support.
+                        </li>
+                        <li>
+                            To monitor and analyze website usage and trends.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    b. We will not sell or rent Your personal information to
+                    third parties unless You expressly consent.
                 </p>
 
-                <h2 className="font-bold">4. Data Storage</h2>
+                <h2 className="font-bold">3. Disclosure of Your Information</h2>
                 <p>
-                    Your personal information, including but not limited to your
-                    GitHub username and email address, is securely stored on the
-                    servers of our database provider, Planetscale. We take data
-                    security seriously and have implemented measures to protect
-                    your information from unauthorized access or disclosure.
+                    a. We may disclose Your personal information to third
+                    parties in the following circumstances:
+                    <ul className="list-disc pl-8">
+                        <li>
+                            To trusted service providers who assist us in
+                            operating Our website and services.
+                        </li>
+                        <li>
+                            To comply with legal obligations or protect Our
+                            rights, privacy, safety, or property.
+                        </li>
+                        <li>
+                            In connection with a business transfer, merger,
+                            acquisition, or sale of all or a portion of Our
+                            assets.
+                        </li>
+                    </ul>
                 </p>
 
-                <h2 className="font-bold">5. Disclosure of Your Information</h2>
+                <h2 className="font-bold">
+                    4. Cookies and Similar Technologies
+                </h2>
                 <p>
-                    We do not disclose your personal information to any third
-                    parties, except as required by law.
+                    We use cookies and similar technologies to collect
+                    information about Your browsing activities. You can control
+                    or disable cookies through Your browser settings, but doing
+                    so may affect Your experience on Our website.
                 </p>
 
-                <h2 className="font-bold">6. Security</h2>
+                <h2 className="font-bold">5. Changes to this Privacy Policy</h2>
                 <p>
-                    We take the security of your personal information seriously.
-                    We use industry-standard security measures to protect your
-                    data from unauthorized access or disclosure.
-                </p>
-
-                <h2 className="font-bold">7. Changes to this Privacy Policy</h2>
-                <p>
-                    We may update our Privacy Policy from time to time. Any
-                    changes will be posted on this page with a new effective
-                    date.
-                </p>
-
-                <h2 className="font-bold">8. Contact Us</h2>
-                <p>
-                    If you have any questions or concerns about this Privacy
-                    Policy or our data practices, please contact us at [Contact
-                    Email Address].
+                    We reserve the right to modify this Privacy Policy at any
+                    time. We will notify You of significant changes through
+                    email or by posting a notice on Our website.
                 </p>
             </div>
         </section>
