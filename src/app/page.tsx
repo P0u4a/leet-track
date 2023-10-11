@@ -12,7 +12,7 @@ export default function Home() {
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
                     <Link
                         href={
-                            'https://chrome.google.com/webstore/category/extensions'
+                            'https://github.com/P0u4a/leetcode-tracker/releases/tag/v1.0.0-beta.1'
                         }
                         className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
                         target="_blank"
@@ -34,7 +34,9 @@ export default function Home() {
                             Get Started
                         </Link>
                         <Link
-                            href={'https://github.com/P0u4a'}
+                            href={
+                                'https://github.com/P0u4a/leetcode-tracker/releases/tag/v1.0.0-beta.1'
+                            }
                             target="_blank"
                             rel="noreferrer"
                             className={cn(
