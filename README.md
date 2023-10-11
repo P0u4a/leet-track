@@ -3,10 +3,10 @@
 Record, track, and visualise your Leetcode progress with a single click. 
 
 ## Preview
-![question table](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/91984caf-1706-482d-b8c6-e33046f11287)
-![time graph](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/f2b69656-8aed-417c-b0c4-ddbce0aee737)
-![difficulty ratios](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/48cd4007-4e34-4c76-b334-a894ad9e8b38)
-![topic counts](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/856207a5-a898-4332-ae89-d3f7119eafa5)
+![data table](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/7874b765-f62e-4f03-9a87-6a414a7e65d6)
+![time graph](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/5f6902eb-fbe2-4359-b706-a278c32a499f)
+![difficulty ratios](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/008e6fcb-f2fb-41ec-be20-fb3b03d37b07)
+![topic counts](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/96c0f2ae-d946-484e-8587-450683f22eda)
 
 ## Running Locally
 
