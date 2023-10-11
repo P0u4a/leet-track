@@ -42,9 +42,9 @@ export default function Header() {
                         Dashboard
                     </Link>
                     <UserButton
-                        afterSignOutUrl="http://localhost:3000/"
+                        afterSignOutUrl="https://leettrack.vercel.app/"
                         userProfileMode="navigation"
-                        userProfileUrl="http://localhost:3000/account"
+                        userProfileUrl="https://leettrack.vercel.app/account"
                         appearance={{
                             elements: {
                                 userButtonPopoverCard:
