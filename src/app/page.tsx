@@ -12,7 +12,7 @@ export default function Home() {
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
                     <Link
                         href={
-                            'https://github.com/P0u4a/leetcode-tracker/releases/tag/v1.0.0-beta.1'
+                            'https://github.com/P0u4a/leetcode-tracker/releases'
                         }
                         className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
                         target="_blank"
@@ -35,7 +35,7 @@ export default function Home() {
                         </Link>
                         <Link
                             href={
-                                'https://github.com/P0u4a/leetcode-tracker/releases/tag/v1.0.0-beta.1'
+                                'https://github.com/P0u4a/leetcode-tracker/releases'
                             }
                             target="_blank"
                             rel="noreferrer"
