@@ -1,4 +1,4 @@
-import { currentUser } from '@clerk/nextjs';
+import { auth } from '@clerk/nextjs';
 import { db } from '@/db';
 import { questions, tagAllocations, tags } from '@/db/schema';
 import { z } from 'zod';
@@ -19,8 +19,8 @@ export async function POST(req: Request) {
 
     const { title, difficulty, time, notes, topicTags } = res.data;
 
-    const user = await currentUser();
-    if (!user) return new Response('Unauthorised', { status: 401 });
+    const { userId }: { userId: string | null } = auth();
+    if (!userId) return new Response('Unauthorised', { status: 401 });
 
     try {
         const { insertId } = await db.insert(questions).values({
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
             difficulty: difficulty,
             timeElapsed: time,
             notes: notes,
-            userId: user.id,
+            userId: userId,
         });
 
         for (const tag of topicTags)
