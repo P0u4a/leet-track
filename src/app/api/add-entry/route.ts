@@ -20,10 +20,7 @@ export async function POST(req: Request) {
     const { title, difficulty, time, notes, topicTags } = res.data;
 
     const user = await currentUser();
-    if (!user) {
-        console.log('no user found');
-        return new Response('Unauthorised', { status: 401 });
-    }
+    if (!user) return new Response('Unauthorised', { status: 401 });
 
     try {
         const { insertId } = await db.insert(questions).values({
