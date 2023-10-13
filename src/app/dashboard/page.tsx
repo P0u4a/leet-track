@@ -14,50 +14,44 @@ export default async function Dashboard() {
     if (!questions) return;
     return (
         <>
-            <section className="container flex flex-col gap-6 py-8 md:py-12">
-                <div className="w-[min(80vw,70rem)] mx-auto flex flex-col gap-8">
-                    <h1 className="text-3xl font-semibold leading-[1.1] sm:text-3xl md:text-6xl">
-                        Dashboard
-                    </h1>
+            <h1 className="text-3xl font-semibold leading-[1.1] sm:text-3xl md:text-6xl">
+                Dashboard
+            </h1>
 
-                    <Tabs defaultValue="solved-problems">
-                        <TabsList className="grid md:w-full grid-cols-1 md:grid-cols-4 h-full">
-                            <TabsTrigger value="solved-problems">
-                                Solved Problems
-                            </TabsTrigger>
-                            <TabsTrigger value="time-graph">
-                                Time Graph
-                            </TabsTrigger>
-                            <TabsTrigger value="diff-ratios">
-                                Difficulty Ratios
-                            </TabsTrigger>
-                            <TabsTrigger value="topic-freq">
-                                Topic Frequencies
-                            </TabsTrigger>
-                        </TabsList>
-                        <div className="py-12">
-                            <TabsContent value="solved-problems">
-                                <DataTable columns={columns} data={questions} />
-                            </TabsContent>
-                            <TabsContent value="time-graph">
-                                <TimeChart data={solveTimes(questions)} />
-                            </TabsContent>
-                            <TabsContent value="diff-ratios">
-                                <div className="flex justify-center items-center">
-                                    <div className="max-w-md flex justify-center items-center">
-                                        <DonutChart
-                                            data={difficultyRatios(questions)}
-                                        />
-                                    </div>
-                                </div>
-                            </TabsContent>
-                            <TabsContent value="topic-freq">
-                                <TopicsChart data={topicCounts(questions)} />
-                            </TabsContent>
+            <Tabs defaultValue="solved-problems">
+                <TabsList className="grid md:w-full grid-cols-1 md:grid-cols-4 h-full">
+                    <TabsTrigger value="solved-problems">
+                        Solved Problems
+                    </TabsTrigger>
+                    <TabsTrigger value="time-graph">Time Graph</TabsTrigger>
+                    <TabsTrigger value="diff-ratios">
+                        Difficulty Ratios
+                    </TabsTrigger>
+                    <TabsTrigger value="topic-freq">
+                        Topic Frequencies
+                    </TabsTrigger>
+                </TabsList>
+                <div className="py-12">
+                    <TabsContent value="solved-problems">
+                        <DataTable columns={columns} data={questions} />
+                    </TabsContent>
+                    <TabsContent value="time-graph">
+                        <TimeChart data={solveTimes(questions)} />
+                    </TabsContent>
+                    <TabsContent value="diff-ratios">
+                        <div className="flex justify-center items-center">
+                            <div className="max-w-md flex justify-center items-center">
+                                <DonutChart
+                                    data={difficultyRatios(questions)}
+                                />
+                            </div>
                         </div>
-                    </Tabs>
+                    </TabsContent>
+                    <TabsContent value="topic-freq">
+                        <TopicsChart data={topicCounts(questions)} />
+                    </TabsContent>
                 </div>
-            </section>
+            </Tabs>
         </>
     );
 }
