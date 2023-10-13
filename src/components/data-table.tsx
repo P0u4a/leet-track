@@ -1,5 +1,7 @@
 'use client';
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { Plus } from 'lucide-react';
 import {
     ColumnDef,
     flexRender,
@@ -22,7 +24,8 @@ import {
 } from '@/components/ui/table';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
     data: TData[];
@@ -76,7 +79,7 @@ export function DataTable<TData, TValue>({
     });
     return (
         <>
-            <div className="flex items-center py-4">
+            <div className="flex flex-col sm:flex-row justify-between gap-4 py-4">
                 <Input
                     placeholder="Filter problems..."
                     value={
@@ -88,6 +91,16 @@ export function DataTable<TData, TValue>({
                     }
                     className="max-w-sm"
                 />
+
+                <Link
+                    href={'/dashboard/new-entry'}
+                    className={`${cn(
+                        buttonVariants({ variant: 'default' })
+                    )} max-w-fit`}
+                >
+                    Add entry
+                    <Plus className="h-4 w-4 ml-1" />
+                </Link>
             </div>
             <div className="rounded-md border">
                 <Table>

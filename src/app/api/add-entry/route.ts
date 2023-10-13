@@ -1,19 +1,11 @@
 import { auth } from '@clerk/nextjs';
 import { db } from '@/db';
 import { questions, tagAllocations, tags } from '@/db/schema';
-import { z } from 'zod';
-
-const requestSchema = z.object({
-    title: z.string(),
-    difficulty: z.enum(['Easy', 'Medium', 'Hard']),
-    time: z.number(),
-    topicTags: z.array(z.string()),
-    notes: z.string().optional(),
-});
+import { AddEntrySchema } from '@/types/request';
 
 export async function POST(req: Request) {
     const data = await req.json();
-    const res = requestSchema.safeParse(data);
+    const res = AddEntrySchema.safeParse(data);
 
     if (!res.success) return new Response('Invalid request', { status: 400 });
 

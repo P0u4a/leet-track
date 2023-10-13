@@ -8,5 +8,5 @@ export async function deleteQuestion(questionId: number) {
     });
 
     if (res.status !== 200) return 'Something went wrong. Please try again';
-    return 'Question deleted successfully';
+    return 'Problem deleted successfully';
 }
