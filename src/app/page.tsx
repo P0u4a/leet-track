@@ -10,15 +10,9 @@ export default function Home() {
         <>
             <section className="space-y-6 pb-8 pt-10">
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-                    <Link
-                        href={
-                            'https://github.com/P0u4a/leetcode-tracker/releases'
-                        }
-                        className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
-                        target="_blank"
-                    >
-                        Download for Chrome
-                    </Link>
+                    <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium">
+                        v1.1.0 out now
+                    </span>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
@@ -35,7 +29,7 @@ export default function Home() {
                         </Link>
                         <Link
                             href={
-                                'https://github.com/P0u4a/leetcode-tracker/releases'
+                                'https://github.com/P0u4a/leetcode-tracker-web'
                             }
                             target="_blank"
                             rel="noreferrer"
@@ -46,7 +40,7 @@ export default function Home() {
                                 })
                             )}
                         >
-                            Download Extension
+                            View on GitHub
                         </Link>
                     </div>
                 </div>
