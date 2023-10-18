@@ -5,13 +5,13 @@ export default function Privacy() {
                 Privacy Policy
             </h1>
             <h3>
-                <strong>Last Updated:</strong> October 09, 2023
+                <strong>Last Updated:</strong> October 18, 2023
             </h3>
 
             <div className="flex flex-col gap-5 max-w-xs md:max-w-5xl leading-normal text-sm sm:text-xl sm:leading-8 text-justify">
                 <p>
-                    This Privacy Policy (&quot;Policy&quot;) outlines how [Your
-                    Company Name] (&quot;Company,&quot; &quot;We,&quot;
+                    This Privacy Policy (&quot;Policy&quot;) outlines how
+                    LeetTrack (&quot;Company,&quot; &quot;We,&quot;
                     &quot;Us,&quot; or &quot;Our&quot;) collects, uses,
                     discloses, and protects Your personal information when You
                     use Our website or services. By using Our website or

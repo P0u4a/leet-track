@@ -17,8 +17,8 @@ export default function Home() {
                         Track your Leetcode progress with just one click
                     </h1>
                     <p className="max-w-xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-                        The chrome extension for logging leetcode questions and
-                        visualising your progress.
+                        LeetTrack is <em>the</em> app for logging leetcode
+                        questions and visualising your progress.
                     </p>
                     <div className="flex flex-col gap-4 md:flex-row">
                         <Link
@@ -28,9 +28,7 @@ export default function Home() {
                             Get Started
                         </Link>
                         <Link
-                            href={
-                                'https://github.com/P0u4a/leetcode-tracker-web'
-                            }
+                            href={'https://github.com/P0u4a/leet-track'}
                             target="_blank"
                             rel="noreferrer"
                             className={cn(
@@ -70,8 +68,8 @@ export default function Home() {
                             <div className="space-y-2 pt-2">
                                 <h3 className="font-bold">Auto Logging</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    No manual input needed, log your solved
-                                    problems with a single click.
+                                    Effortlessly log your solved problems with a
+                                    single click.
                                 </p>
                             </div>
                         </div>
