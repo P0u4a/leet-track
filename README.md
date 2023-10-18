@@ -3,10 +3,11 @@
 Record, track, and visualise your Leetcode progress with a single click. 
 
 ## Preview
-![data table](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/7874b765-f62e-4f03-9a87-6a414a7e65d6)
-![time graph](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/5f6902eb-fbe2-4359-b706-a278c32a499f)
-![difficulty ratios](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/008e6fcb-f2fb-41ec-be20-fb3b03d37b07)
-![topic counts](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/96c0f2ae-d946-484e-8587-450683f22eda)
+![table](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/3b3f8d62-0bcc-472e-8e09-52eab50bc15b)
+![time graph](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/b1048646-fb81-4fb1-8830-2b03758e3e8e)
+![difficulty ratios](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/12b0fb3f-a243-4616-b7d6-d05ff0f0f1af)
+![topic counts](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/053647db-017c-4a7a-a53f-c9cd60047d51)
+![new-entry](https://github.com/P0u4a/leetcode-tracker-web/assets/66873325/ff156936-ee2f-4693-a2c2-b26abb3a67ae)
 
 ## Running Locally
 
