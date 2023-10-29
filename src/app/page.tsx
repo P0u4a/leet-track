@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
+import { Siren } from 'lucide-react';
 import { auth } from '@clerk/nextjs';
 import { Timer, LineChart, Zap } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function Home() {
     const { userId } = auth();
@@ -10,9 +12,18 @@ export default function Home() {
         <>
             <section className="space-y-6 pb-8 pt-10">
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-                    <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium">
-                        v1.1.0 out now
-                    </span>
+                    <Alert className="rounded-2xl max-w-xl bg-muted">
+                        <AlertTitle className="flex flex-row gap-2 justify-center items-center">
+                            <Siren className="h-5 w-5" />
+                            Important Update!
+                        </AlertTitle>
+                        <AlertDescription>
+                            LeetCode&apos;s GraphQL API is now protected by
+                            CloudFlare. While an alternative solution is being
+                            developed, please note no new entries can be added
+                            in the meantime.
+                        </AlertDescription>
+                    </Alert>{' '}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
