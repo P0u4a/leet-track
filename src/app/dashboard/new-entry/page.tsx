@@ -31,6 +31,11 @@ export default function NewEntry() {
             case 400:
                 toast.error('Cannot find LeetCode problem.');
                 break;
+            case 403:
+                toast.error(
+                    'Cannot access LeetCode API.\n Please try again later.'
+                );
+                break;
             case 500:
                 toast.error('Something went wrong. Please try again.');
             default:

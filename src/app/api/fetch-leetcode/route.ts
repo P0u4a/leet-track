@@ -23,18 +23,22 @@ export async function POST(req: Request) {
 
     const titleSlug = getSlug(title);
     const variables = { titleSlug };
-    const res = await fetch('https://leetcode.com/graphql', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            query,
-            variables,
-        }),
-    });
+    try {
+        const res = await fetch('https://leetcode.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query,
+                variables,
+            }),
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    return Response.json(data);
+        return Response.json(data);
+    } catch (err) {
+        return new Response('Request Refused', { status: 403 });
+    }
 }

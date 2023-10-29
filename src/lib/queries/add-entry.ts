@@ -8,6 +8,7 @@ export async function addEntry(entry: NewEntry) {
         body: JSON.stringify({ title: entry.title }),
     });
 
+    if (leetcodeRes.status === 403) return 403;
     if (leetcodeRes.status !== 200) return 500;
 
     const { data }: LeetcodeRes = await leetcodeRes.json();
