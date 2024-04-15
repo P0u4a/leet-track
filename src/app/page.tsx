@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { auth } from '@clerk/nextjs';
 import { Timer, LineChart, Zap } from 'lucide-react';
 
@@ -10,6 +11,16 @@ export default function Home() {
         <>
             <section className="space-y-6 pb-8 pt-10">
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
+                    <Badge
+                        className="max-w-sm rounded-md"
+                        variant={'secondary'}
+                    >
+                        <p className="text-base">
+                            🚨 Since PlanetScale has removed their free tier,
+                            this demo is now deprecated. Feel free to run it
+                            locally by cloning it on GitHub! 🚨
+                        </p>
+                    </Badge>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
