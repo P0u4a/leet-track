@@ -3,7 +3,7 @@ import { db } from '@/db';
 import { currentUser } from '@clerk/nextjs';
 import { eq, desc } from 'drizzle-orm';
 
-async function getQuestionTags(id: number) {
+async function getQuestionTags(id: string) {
     try {
         const tags = await db
             .select({

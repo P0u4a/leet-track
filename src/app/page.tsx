@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { auth } from '@clerk/nextjs';
 import { Timer, LineChart, Zap } from 'lucide-react';
 
@@ -11,16 +10,6 @@ export default function Home() {
         <>
             <section className="space-y-6 pb-8 pt-10">
                 <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-                    <Badge
-                        className="max-w-sm rounded-md"
-                        variant={'secondary'}
-                    >
-                        <p className="text-base">
-                            🚨 Since PlanetScale has removed their free tier,
-                            this demo is now deprecated. Feel free to run it
-                            locally by cloning it on GitHub! 🚨
-                        </p>
-                    </Badge>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold pb-4">
                         Track your Leetcode progress with just one click
                     </h1>
@@ -52,7 +41,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="container space-y-6 py-8 md:py-12 lg:py-24">
-                <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+                <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center pb-6">
                     <h2 className="text-3xl leading-[1.1] sm:text-3xl md:text-6xl font-bold">
                         Features
                     </h2>
@@ -77,7 +66,7 @@ export default function Home() {
                                 <h3 className="font-bold">Auto Logging</h3>
                                 <p className="text-sm text-muted-foreground">
                                     Effortlessly log your solved problems with a
-                                    single click.
+                                    single click
                                 </p>
                             </div>
                         </div>
@@ -91,7 +80,7 @@ export default function Home() {
                                 </h3>
                                 <p className="text-sm text-muted-foreground">
                                     Visualise your progress through
-                                    auto-generated graphs.
+                                    auto-generated graphs
                                 </p>
                             </div>
                         </div>

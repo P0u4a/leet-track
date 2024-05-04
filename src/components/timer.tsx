@@ -42,7 +42,7 @@ export default function Timer({ onTimerUpdate }: TimerProps) {
     return (
         <div
             id="timer"
-            className="max-w-sm flex flex-col gap-6 p-5 items-center rounded-2xl border-solid border-input border-2"
+            className="max-w-sm flex flex-col gap-6 p-5 items-center rounded-2xl border-solid border-input border-2 bg-background"
         >
             <Badge className="max-w-fit" variant={'secondary'}>
                 <span className="text-4xl">{formatTime(currTime)}</span>

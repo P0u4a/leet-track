@@ -69,7 +69,7 @@ export default function NewEntry() {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="Notes about the problem"
-                    className="max-w-sm h-40"
+                    className="max-w-sm h-40 resize-none"
                 />
             </div>
 

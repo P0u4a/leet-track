@@ -11,7 +11,10 @@ import TopicsChart from '@/components/topics-chart';
 
 export default async function Dashboard() {
     const questions = await fetchQuestions();
-    if (!questions) return;
+    console.log(questions);
+    if (!questions) {
+        return null;
+    }
     return (
         <>
             <h1 className="text-3xl font-semibold leading-[1.1] sm:text-3xl md:text-6xl">

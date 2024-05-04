@@ -8,7 +8,7 @@ const QuestionSchema = z.object({
             name: z.string(),
         })
     ),
-    id: z.number(),
+    id: z.string(),
     name: z.string(),
     difficulty: DifficultySchema,
     timeElapsed: z.number(),

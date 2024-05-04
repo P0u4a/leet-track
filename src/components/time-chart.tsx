@@ -73,7 +73,7 @@ export default function TimeChart({ data }: TimeChartProps) {
                     x: {
                         type: 'time',
                         time: {
-                            unit: 'day',
+                            unit: 'month',
                         },
                         grid: { display: false },
                     },

@@ -15,24 +15,24 @@ export async function POST(req: Request) {
     if (!userId) return new Response('Unauthorised', { status: 401 });
 
     try {
-        const { insertId } = await db.insert(questions).values({
-            name: title,
-            difficulty: difficulty,
-            timeElapsed: time,
-            notes: notes,
-            userId: userId,
-        });
+        const [{ insertId }] = await db
+            .insert(questions)
+            .values({
+                name: title,
+                difficulty: difficulty,
+                timeElapsed: time,
+                notes: notes,
+                userId: userId,
+            })
+            .returning({ insertId: questions.id });
 
-        for (const tag of topicTags)
-            await db.insert(tags).ignore().values({ name: tag });
-
-        const questionId = parseInt(insertId, 10);
-
-        for (const tag of topicTags)
+        topicTags.forEach(async (tag) => {
+            await db.insert(tags).values({ name: tag }).onConflictDoNothing();
             await db
                 .insert(tagAllocations)
-                .ignore()
-                .values({ tagName: tag, questionId: questionId });
+                .values({ tagName: tag, questionId: insertId })
+                .onConflictDoNothing();
+        });
     } catch (err) {
         return new Response('Internal Error', { status: 500 });
     }

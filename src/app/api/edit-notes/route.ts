@@ -4,7 +4,7 @@ import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 
 const EditNotesSchema = z.object({
-    questionId: z.number(),
+    questionId: z.string(),
     newNote: z.string(),
 });
 
