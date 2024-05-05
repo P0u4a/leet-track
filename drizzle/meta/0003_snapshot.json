@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "54e8575f-be25-4699-b047-1ea9647c134f",
-  "prevId": "c37172c4-86d1-451c-8fcf-7d0aa0cb5699",
+  "id": "e67eb122-1972-4c60-ad5d-43748cf18aea",
+  "prevId": "f556cd4c-2522-4ac0-8f50-c7941b23044e",
   "tables": {
     "questions": {
       "name": "questions",

@@ -11,7 +11,6 @@ import TopicsChart from '@/components/topics-chart';
 
 export default async function Dashboard() {
     const questions = await fetchQuestions();
-    console.log(questions);
     if (!questions) {
         return null;
     }

@@ -1,169 +1,173 @@
 {
-  "id": "00000000-0000-0000-0000-000000000000",
-  "prevId": "",
   "version": "5",
-  "dialect": "mysql",
+  "dialect": "sqlite",
+  "id": "c37172c4-86d1-451c-8fcf-7d0aa0cb5699",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "questions": {
       "name": "questions",
       "columns": {
         "id": {
-          "autoincrement": false,
           "name": "id",
-          "type": "varchar(64)",
-          "primaryKey": false,
-          "notNull": true
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
         },
         "name": {
-          "autoincrement": false,
           "name": "name",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "difficulty": {
-          "autoincrement": false,
           "name": "difficulty",
-          "type": "enum('Easy','Medium','Hard')",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "time_elapsed": {
-          "autoincrement": false,
           "name": "time_elapsed",
-          "type": "int",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "notes": {
-          "autoincrement": false,
           "name": "notes",
-          "type": "varchar(255)",
+          "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "autoincrement": false
+        },
+        "date_completed": {
+          "name": "date_completed",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch())"
         },
         "user_id": {
-          "autoincrement": false,
           "name": "user_id",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         }
       },
-      "compositePrimaryKeys": {
-        "questions_id": {
-          "name": "questions_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
-      "indexes": {
-        "user_id_idx": {
-          "name": "user_id_idx",
-          "columns": [
+      "indexes": {},
+      "foreignKeys": {
+        "questions_user_id_users_id_fk": {
+          "name": "questions_user_id_users_id_fk",
+          "tableFrom": "questions",
+          "tableTo": "users",
+          "columnsFrom": [
             "user_id"
           ],
-          "isUnique": false
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
-      "foreignKeys": {},
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "tag_allocations": {
       "name": "tag_allocations",
       "columns": {
         "question_id": {
-          "autoincrement": false,
           "name": "question_id",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
         },
         "tag_name": {
-          "autoincrement": false,
           "name": "tag_name",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "tag_allocations_question_id_questions_id_fk": {
+          "name": "tag_allocations_question_id_questions_id_fk",
+          "tableFrom": "tag_allocations",
+          "tableTo": "questions",
+          "columnsFrom": [
+            "question_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "tag_allocations_tag_name_tags_name_fk": {
+          "name": "tag_allocations_tag_name_tags_name_fk",
+          "tableFrom": "tag_allocations",
+          "tableTo": "tags",
+          "columnsFrom": [
+            "tag_name"
+          ],
+          "columnsTo": [
+            "name"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
-        "tag_allocations_question_id_tag_name": {
-          "name": "tag_allocations_question_id_tag_name",
+        "tag_allocations_question_id_tag_name_pk": {
           "columns": [
             "question_id",
             "tag_name"
           ]
         }
       },
-      "indexes": {
-        "question_id_idx": {
-          "name": "question_id_idx",
-          "columns": [
-            "question_id"
-          ],
-          "isUnique": false
-        },
-        "tag_name_idx": {
-          "name": "tag_name_idx",
-          "columns": [
-            "tag_name"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {},
       "uniqueConstraints": {}
     },
     "tags": {
       "name": "tags",
       "columns": {
         "name": {
-          "autoincrement": false,
           "name": "name",
-          "type": "varchar(64)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "compositePrimaryKeys": {
-        "tags_name": {
-          "name": "tags_name",
-          "columns": [
-            "name"
-          ]
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "users": {
       "name": "users",
       "columns": {
         "id": {
-          "autoincrement": false,
           "name": "id",
-          "type": "varchar(64)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "compositePrimaryKeys": {
-        "users_id": {
-          "name": "users_id",
-          "columns": [
-            "id"
-          ]
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }
   },
-  "schemas": {},
+  "enums": {},
   "_meta": {
     "schemas": {},
     "tables": {},

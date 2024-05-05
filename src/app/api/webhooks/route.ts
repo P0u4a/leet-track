@@ -61,12 +61,14 @@ export async function POST(req: Request) {
                 .from(questions)
                 .where(eq(questions.userId, id));
             // Use questionIds to delete their tag allocations
-            await db.delete(tagAllocations).where(
-                inArray(
-                    tagAllocations.questionId,
-                    qids.map((qid) => qid.questionId)
-                )
-            );
+            if (qids.length > 0) {
+                await db.delete(tagAllocations).where(
+                    inArray(
+                        tagAllocations.questionId,
+                        qids.map((qid) => qid.questionId)
+                    )
+                );
+            }
             // Delete the rest
             await db.delete(questions).where(eq(questions.userId, id));
             await db.delete(users).where(eq(users.id, id));

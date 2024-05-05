@@ -1,81 +1,80 @@
 {
   "version": "5",
-  "dialect": "mysql",
-  "id": "47063144-0fe4-43e7-bcd0-7dd4ea68fc83",
-  "prevId": "8d1cbb4d-ca3a-4045-9d96-30f448661527",
+  "dialect": "sqlite",
+  "id": "f556cd4c-2522-4ac0-8f50-c7941b23044e",
+  "prevId": "54e8575f-be25-4699-b047-1ea9647c134f",
   "tables": {
     "questions": {
       "name": "questions",
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
-          "primaryKey": false,
+          "type": "text",
+          "primaryKey": true,
           "notNull": true,
-          "autoincrement": true
+          "autoincrement": false
         },
         "name": {
           "name": "name",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "difficulty": {
           "name": "difficulty",
-          "type": "enum('Easy','Medium','Hard')",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "time_elapsed": {
           "name": "time_elapsed",
-          "type": "int",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "notes": {
           "name": "notes",
-          "type": "varchar(255)",
+          "type": "text",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "date_completed": {
           "name": "date_completed",
-          "type": "timestamp",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "default": "CURRENT_TIMESTAMP"
+          "default": "(unixepoch())"
         },
         "user_id": {
           "name": "user_id",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         }
       },
-      "indexes": {
-        "user_id_idx": {
-          "name": "user_id_idx",
-          "columns": [
+      "indexes": {},
+      "foreignKeys": {
+        "questions_user_id_users_id_fk": {
+          "name": "questions_user_id_users_id_fk",
+          "tableFrom": "questions",
+          "tableTo": "users",
+          "columnsFrom": [
             "user_id"
           ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "questions_id": {
-          "name": "questions_id",
-          "columns": [
+          "columnsTo": [
             "id"
-          ]
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
         }
       },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "tag_allocations": {
@@ -83,39 +82,50 @@
       "columns": {
         "question_id": {
           "name": "question_id",
-          "type": "int",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "tag_name": {
           "name": "tag_name",
-          "type": "varchar(64)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         }
       },
-      "indexes": {
-        "question_id_idx": {
-          "name": "question_id_idx",
-          "columns": [
+      "indexes": {},
+      "foreignKeys": {
+        "tag_allocations_question_id_questions_id_fk": {
+          "name": "tag_allocations_question_id_questions_id_fk",
+          "tableFrom": "tag_allocations",
+          "tableTo": "questions",
+          "columnsFrom": [
             "question_id"
           ],
-          "isUnique": false
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
         },
-        "tag_name_idx": {
-          "name": "tag_name_idx",
-          "columns": [
+        "tag_allocations_tag_name_tags_name_fk": {
+          "name": "tag_allocations_tag_name_tags_name_fk",
+          "tableFrom": "tag_allocations",
+          "tableTo": "tags",
+          "columnsFrom": [
             "tag_name"
           ],
-          "isUnique": false
+          "columnsTo": [
+            "name"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
-      "foreignKeys": {},
       "compositePrimaryKeys": {
-        "tag_allocations_question_id_tag_name": {
-          "name": "tag_allocations_question_id_tag_name",
+        "tag_allocations_question_id_tag_name_pk": {
           "columns": [
             "question_id",
             "tag_name"
@@ -129,22 +139,15 @@
       "columns": {
         "name": {
           "name": "name",
-          "type": "varchar(64)",
-          "primaryKey": false,
+          "type": "text",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "tags_name": {
-          "name": "tags_name",
-          "columns": [
-            "name"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "users": {
@@ -152,26 +155,19 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar(64)",
-          "primaryKey": false,
+          "type": "text",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "users_id": {
-          "name": "users_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }
   },
-  "schemas": {},
+  "enums": {},
   "_meta": {
     "schemas": {},
     "tables": {},

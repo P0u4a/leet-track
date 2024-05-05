@@ -1,26 +1,33 @@
 {
   "version": "5",
-  "dialect": "mysql",
+  "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1694363015528,
-      "tag": "0000_thin_zarek",
+      "when": 1714844082591,
+      "tag": "0000_rainy_alex_power",
       "breakpoints": true
     },
     {
       "idx": 1,
       "version": "5",
-      "when": 1694430410120,
-      "tag": "0001_unusual_leopardon",
+      "when": 1714888138221,
+      "tag": "0001_daffy_starjammers",
       "breakpoints": true
     },
     {
       "idx": 2,
       "version": "5",
-      "when": 1694788603510,
-      "tag": "0002_breezy_marvel_boy",
+      "when": 1714888299518,
+      "tag": "0002_deep_scrambler",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1714888486333,
+      "tag": "0003_flowery_stick",
       "breakpoints": true
     }
   ]
