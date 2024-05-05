@@ -1,4 +1,4 @@
-export async function editNotes(questionId: number, newNote: string) {
+export async function editNotes(questionId: string, newNote: string) {
     const res = await fetch(`/api/edit-notes`, {
         method: 'POST',
         headers: {

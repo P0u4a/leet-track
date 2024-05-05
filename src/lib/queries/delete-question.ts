@@ -1,4 +1,4 @@
-export async function deleteQuestion(questionId: number) {
+export async function deleteQuestion(questionId: string) {
     const res = await fetch('/api/delete-question', {
         method: 'POST',
         headers: {

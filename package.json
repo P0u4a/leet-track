@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
-    "drizzle-kit": "^0.19.13"
+    "drizzle-kit": "^0.19.13",
+    "encoding": "^0.1.13"
   }
 }
