@@ -15,14 +15,21 @@ Record, track, and visualise your Leetcode progress with a single click.
 2. Run `pnpm install` to install dependencies
 3. Create a `.env.local` file in the project root
 ### Database
-On [planetscale](https://planetscale.com/) create a new database. Copy your `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `DATABASE_HOST` values into your `.env.local` file.
+On [Turso](https://turso.tech/) create a new database, note down the connection url of your new DB. Make sure you also have the Turso CLI installed. Then run `turso auth token` to get your auth token for connecting to the DB. Copy your `TURSO_AUTH_TOKEN` and `TURSO_CONNECTION_URL` values into your `.env.local` file.
 
-Run `pnpm run db:generate` to generate your SQL files from the drizzle schema. Then run `pnpm run db:push` to push the changes into your planetscale database. You can customise these commands inside `package.json`.
+Run `pnpm run db:generate` to generate your SQL files from the drizzle schema. Then run `pnpm run db:push` to push the changes into your Turso database. You can customise these commands inside `package.json`.
 
 ### Authentication
-On [clerk](https://clerk.com/) create a new application, and enable the GitHub OAuth provider. You will also have to go into your GitHub account and create the necessary `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` files. Instructions can be found [here](https://clerk.com/docs/authentication/social-connections/github). Follow Clerk's instructions on the necessary enviornment variables you need to set. 
+On [Clerk](https://clerk.com/) create a new application, and enable the GitHub OAuth provider. You will also have to go into your GitHub account and create the necessary `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` files. Instructions can be found [here](https://clerk.com/docs/authentication/social-connections/github). You should also set the following environment variables to the respective route you want to redirect the user to:
+- `NEXT_PUBLIC_CLERK_SIGN_IN_URL`
+- `NEXT_PUBLIC_CLERK_SIGN_UP_URL`
+- `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL`
+- `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL`
 
-To sync your database with Clerk's user database, create a **webhook** inside clerk, and add the `WEBHOOK_SECRET` into your `.env.local`. Further instructions on how to setup the webhook can be found [here](https://clerk.com/docs/users/sync-data).
+More information about these environment variables can be found [here](https://clerk.com/docs/deployments/clerk-environment-variables#sign-in-and-sign-up-redirects).
+
+
+To sync your database with Clerk's user database, create a **webhook** inside your Clerk dashboard, and add the `WEBHOOK_SECRET` into your `.env.local`. Further instructions on how to setup the webhook can be found [here](https://clerk.com/docs/users/sync-data).
 
 ### Running
 Run `pnpm run dev` to start the project in dev mode.
