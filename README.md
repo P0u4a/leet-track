@@ -20,16 +20,9 @@ On [Turso](https://turso.tech/) create a new database, note down the connection 
 Run `pnpm run db:generate` to generate your SQL files from the drizzle schema. Then run `pnpm run db:push` to push the changes into your Turso database. You can customise these commands inside `package.json`.
 
 ### Authentication
-On [Clerk](https://clerk.com/) create a new application, and enable the GitHub OAuth provider. You will also have to go into your GitHub account and create the necessary `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` files. Instructions can be found [here](https://clerk.com/docs/authentication/social-connections/github). You should also set the following environment variables to the respective route you want to redirect the user to:
-- `NEXT_PUBLIC_CLERK_SIGN_IN_URL`
-- `NEXT_PUBLIC_CLERK_SIGN_UP_URL`
-- `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL`
-- `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL`
+Run `pnpx auth secret` to generate the `AUTH_SECRET` env variable for NextAuth. 
 
-More information about these environment variables can be found [here](https://clerk.com/docs/deployments/clerk-environment-variables#sign-in-and-sign-up-redirects).
-
-
-To sync your database with Clerk's user database, create a **webhook** inside your Clerk dashboard, and add the `WEBHOOK_SECRET` into your `.env.local`. Further instructions on how to setup the webhook can be found [here](https://clerk.com/docs/users/sync-data).
+Create a test OAuth app on your GitHub account. Set the callback URL to `http://localhost:3000/api/auth/callback/github` and copy over the client ID and client secret into your `.env.local` file, named as `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` respectively.
 
 ### Running
 Run `pnpm run dev` to start the project in dev mode.

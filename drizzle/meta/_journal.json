@@ -29,6 +29,20 @@
       "when": 1714888486333,
       "tag": "0003_flowery_stick",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1736923600379,
+      "tag": "0004_lyrical_zemo",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1736923928895,
+      "tag": "0005_thin_chronomancer",
+      "breakpoints": true
     }
   ]
 }
