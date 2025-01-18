@@ -7,5 +7,5 @@ export default async function SignedOut({
 }) {
   const session = await auth();
 
-  return session ? null : <>{children}</>;
+  return session?.user ? null : <>{children}</>;
 }
