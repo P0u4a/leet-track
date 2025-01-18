@@ -4,7 +4,6 @@ import { buttonVariants } from '@/components/ui/button';
 import { Timer, LineChart, Zap } from 'lucide-react';
 
 export default function Home() {
-  const { userId } = { userId: '0' };
   return (
     <>
       <section className="space-y-6 pb-8 pt-10">
@@ -18,7 +17,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-4 md:flex-row">
             <Link
-              href={`${userId ? '/dashboard' : '/sign-in'}`}
+              href={'/dashboard'}
               className={cn(buttonVariants({ size: 'lg' }))}
             >
               Get Started
